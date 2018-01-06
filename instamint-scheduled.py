@@ -6,8 +6,8 @@ import time
 def job():
     try:
 
-        insta_username = 'powerfulyogurt'
-        insta_password = 'EatPowerful17'
+        insta_username = ''
+        insta_password = ''
 
         # if you want to run this script on a server, 
         #simply add nogui=True to the InstaPy() constructor 

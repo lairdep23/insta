@@ -10,11 +10,11 @@ def job():
 
         # if you want to run this script on a server, 
         #simply add nogui=True to the InstaPy() constructor 
-        session = InstaPy(username=insta_username, password=insta_password, nogui=True, proxy_address='192.168.1.9', proxy_port=8080)
-        session.login()
-        #session.browser.get("https://www.instagram.com")
-        #for cookie in pickle.load(open("instacookiespowerful.pkl", "rb")):
-            #session.browser.add_cookie(cookie)
+        session = InstaPy(username=insta_username, password=insta_password, nogui=True)
+        #session.login()
+        session.browser.get("https://www.instagram.com")
+        for cookie in pickle.load(open("instacookiespintful.pkl", "rb")):
+            session.browser.add_cookie(cookie)
 
         # set up all the settings
         session.set_upper_follower_count(limit=5000)

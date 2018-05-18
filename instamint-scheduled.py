@@ -1,12 +1,13 @@
 from instapy import InstaPy
 import schedule
 import time
+import pickle
 
 def job():
     try:
 
-        insta_username = 'pintfulpb'
-        insta_password = 'eatmynut$18'
+        insta_username = ''
+        insta_password = ''
 
         # if you want to run this script on a server, 
         #simply add nogui=True to the InstaPy() constructor 
@@ -17,15 +18,19 @@ def job():
             session.browser.add_cookie(cookie)
 
         # set up all the settings
-        session.set_upper_follower_count(limit=5000)
-        session.set_lower_follower_count(limit=10)
+        session.set_relationship_bounds(enabled=True,
+				  delimit_by_numbers=True,
+				   max_followers=5000,
+				    max_following=10000,
+				     min_followers=50,
+				      min_following=50)
         session.set_do_comment(True, percentage=50)
         session.set_comments([u'Awesome post! :fire: Keep it up :punch: :100:', u'Love it! :heart_eyes:', u'Great post! :thumbsup: :smiley:', u'Nice! :ok_hand: :100:', 'Yummy!!'])
         session.set_dont_like(['male', 'gay', 'drugs', '420', 'sex', 'porn', 'naked', 'boy', 'body'])
         session.set_do_follow(enabled=True, percentage=15, times=1)
         session.unfollow_users(amount=50, onlyInstapyFollowed=True, onlyInstapyMethod = 'FIFO')
         # do the actual liking
-        session.like_by_tags(['peanutbutter', 'healthydessert', 'vegandessert', 'organicfood', 'veganfood'], amount=50)
+        session.like_by_tags(['peanutbutter', 'healthydessert', 'vegandessert', 'fitfood', 'veganfood'], amount=50)
         # session.like_by_locations(['242342160/wausau-wisconsin/', '222324874/appleton-wisconsin/', '214788051/madison-wisconsin/'], amount=100, skip_top_posts=False)
 
 
